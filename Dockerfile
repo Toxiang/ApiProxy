@@ -12,6 +12,7 @@ ARG ALPINE_IMAGE=alpine:3.21
 ARG POSTGRES_IMAGE=postgres:18-alpine
 ARG GOPROXY=https://goproxy.cn,direct
 ARG GOSUMDB=sum.golang.google.cn
+ARG FRONTEND_NODE_OPTIONS=--max-old-space-size=2048
 
 # -----------------------------------------------------------------------------
 # Stage 1: Frontend Builder
@@ -29,7 +30,7 @@ RUN pnpm install --frozen-lockfile
 
 # Copy frontend source and build
 COPY frontend/ ./
-RUN NODE_OPTIONS="--max-old-space-size=1024" pnpm run build
+RUN NODE_OPTIONS="${FRONTEND_NODE_OPTIONS}" pnpm run build
 
 # -----------------------------------------------------------------------------
 # Stage 2: Backend Builder

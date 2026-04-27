@@ -9,4 +9,4 @@ docker run -d   --name apiproxy --restart unless-stopped  \
           --network api-proxy-net  -p 18080:8080    \
           -v /home/ai/data/proxy:/app/data   \
           --env-file  /home/ai/ApiProxy/deploy/.env   \
-          toxic/api_proxy:latest
+          toxic/apiproxy:latest

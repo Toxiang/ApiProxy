@@ -57,6 +57,9 @@
       <!-- Copyright -->
       <div class="mt-8 text-center text-xs text-gray-400 dark:text-dark-500">
         &copy; {{ currentYear }} {{ siteName }}. All rights reserved.
+        <div class="mt-2">
+          <IcpLink class="text-xs text-gray-400 dark:text-dark-500" />
+        </div>
       </div>
     </div>
   </div>
@@ -65,6 +68,7 @@
 <script setup lang="ts">
 import { computed, onMounted } from 'vue'
 import { useAppStore } from '@/stores'
+import IcpLink from '@/components/common/IcpLink.vue'
 import { sanitizeUrl } from '@/utils/url'
 
 const appStore = useAppStore()
